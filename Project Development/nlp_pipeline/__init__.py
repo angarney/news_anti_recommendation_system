@@ -1,0 +1,1 @@
+from .nlp_pipeline import nlp_pipeline
