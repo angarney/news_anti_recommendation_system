@@ -35,8 +35,8 @@ with st.form(key='my_form'):
 	submit_button = st.form_submit_button(label='Find Articles')
 
 #Load in pickled objects
-topic_model = pickle.load(open(f'topic_model','rb'))
-sent_score_df = pickle.load(open(f'sent_score_df','rb'))
+topic_model = pickle.load(open('topic_model','rb'))
+sent_score_df = pickle.load(open('sent_score_df','rb'))
 
 #Sentiment function
 def compound_sorter(score):
