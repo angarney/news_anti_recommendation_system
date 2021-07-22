@@ -13,6 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import nltk
 nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
+import os
 
 #Import created pipeline class
 from nlp_pipeline import nlp_pipeline
@@ -35,8 +36,13 @@ with st.form(key='my_form'):
 	submit_button = st.form_submit_button(label='Find Articles')
 
 #Load in pickled objects
-topic_model = pickle.load(open('../topic_model','rb'))
-sent_score_df = pickle.load(open('../sent_score_df','rb'))
+
+path = os.path.dirname(__file__)
+topic_file = path+'/topic_model'
+sent_score_file = path+'/sent_score_df'
+
+topic_model = pickle.load(open(topic_file,'rb'))
+sent_score_df = pickle.load(open(sent_score_file,'rb'))
 
 #Sentiment function
 def compound_sorter(score):
