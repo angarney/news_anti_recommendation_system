@@ -1,14 +1,16 @@
-# Data_Engineering_Project
+# Reducing Echo Chambers Through an Updated Anti-Recommendation System
 
-As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~70,000+ news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and a topic modeling. Moving forward:
+As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~70,000+ news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and Google's news pre-trained Word2Vec model. Moving forward:
 * News aggregators and social media website should consider varying their recommendations algorithms to reduce echo chambers
-* 
+* Utilizing current news sources increases the interpretability of recommendations
+* Additional context around the recommendation helps make the articles more user friendly
+* Future opportunities may include automating the data pipeline and uploading the app to StreamLit Sharing
 
 The following resources can be found in this repository:
-* [Data Acquisition](ADD LINK)
-* [Topic Modeling Workflow](ADD LINK)
-* [Recommender System Workflow](ADD LINK)
-* [Streamlit App](ADD LINK)
+* [Data Acquisition](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/test_pipeline.ipynb)
+* [Topic Modeling Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/topic_modeling_workflow.ipynbK)
+* [Recommender System Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/recommender_workflow_word2vec.ipynb)
+* [Streamlit App](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/streamlit_app.py)
 
 ## Design
 News article titles were explored to create a recommendation system that would return articles from different perspectives. 
@@ -45,4 +47,4 @@ News article titles were explored to create a recommendation system that would r
 * [Gensim](https://radimrehurek.com/gensim/): Model creation
 
 ## Communication
-A [presentation](ADD LINK) and app were created. 
+A [presentation](https://github.com/angarney/Data_Engineering_Project/blob/main/Presentation/news_072321.pdf) and app were created. 
