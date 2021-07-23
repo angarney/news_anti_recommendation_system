@@ -18,9 +18,6 @@ from nltk.tokenize import word_tokenize
 import re
 import numpy as np
 
-#Import created pipeline class
-from nlp_pipeline import nlp_pipeline
-
 st.write("""
 # News Article Anti-Recommender System
 As the information access becomes increasingly online,
