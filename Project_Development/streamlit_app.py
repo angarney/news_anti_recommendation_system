@@ -14,6 +14,9 @@ import nltk
 nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 import os
+from nltk.tokenize import word_tokenize
+import re
+import numpy as np
 
 #Import created pipeline class
 from nlp_pipeline import nlp_pipeline
@@ -38,11 +41,16 @@ with st.form(key='my_form'):
 #Load in pickled objects
 
 path = os.path.dirname(__file__)
-topic_file = path+'/topic_model'
-sent_score_file = path+'/sent_score_df'
 
-topic_model = pickle.load(open(topic_file,'rb'))
+sent_score_file = path+'/sent_score_df'
+news_df_file = path+'/news_df'
+word2vec_model_file = path+'/word2vec_model'
+doc_vectors_file = path+'/doc_vectors'
+
 sent_score_df = pickle.load(open(sent_score_file,'rb'))
+news_df = pickle.load(open(news_df_file,'rb'))
+word2vec_model = pickle.load(open(word2vec_model_file,'rb'))
+doc_vectors = pickle.load(open(doc_vectors_file,'rb'))
 
 #Sentiment function
 def compound_sorter(score):
@@ -53,17 +61,40 @@ def compound_sorter(score):
     elif score < 0:
         return -1
 
+#Function to clean/tokenize words
+def clean_and_tokenize(document):
+    token_list = word_tokenize(document)
+    cleaned_words = []
+    for word in token_list:
+        low_word = re.sub('[\d\W]', '', word).lower()
+        if low_word:
+            cleaned_words.append(low_word)
+    return cleaned_words
+
+#Function to create document vectors
+not_in_model = []
+
+def vectorize_document(cleaned_title_words, model):
+    list_of_word_vectors = []
+    for token in cleaned_title_words:
+        if token in model.wv.vocab:
+            list_of_word_vectors.append(model[token])
+        else:
+            not_in_model.append(token)
+    doc_vector = np.mean(list_of_word_vectors, axis=0)
+    return doc_vector
+
 #Recommender function
 
-def article_opposite(input_query):
+def article_opposite(input_query, model, doc_vectors):
 
     #Find sentiment
     analyzer = SentimentIntensityAnalyzer()
     new_sentiment = compound_sorter(analyzer.polarity_scores(input_query)['compound']) #-1 negative, +1 positive
 
     #Find topic
-    new_topic = topic_model.transform_new(input_query)
-    potential_article_return_list = pairwise_distances(new_topic,topic_model.topics,metric='cosine').argsort()
+    new_topic = vectorize_document(clean_and_tokenize(input_query), model).reshape(1, -1)
+    potential_article_return_list = pairwise_distances(new_topic,doc_vectors,metric='cosine').argsort()
     articles_to_return = []
     already_added_1 = False
     already_added_2 = False
@@ -103,12 +134,12 @@ def article_opposite(input_query):
 
 #Run function
 if input_query:
-    recommended_articles = article_opposite([str(input_query)])
+    recommended_articles = article_opposite(str(input_query),word2vec_model,doc_vectors)
     article_1 = sent_score_df.iloc[recommended_articles[0]]['article']
     article_2 = sent_score_df.iloc[recommended_articles[1]]['article']
     
     st.write("""
-    ## Recommended Articles
+    ## Check-out there articles!
     """)
     st.write('Article 1: {art1}'.format(art1 = article_1))
     st.write('Article 2: {art2}'.format(art2 = article_2))
