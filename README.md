@@ -1,17 +1,14 @@
 # Data_Engineering_Project
 
-As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~204,000 news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and a topic modeling. Moving forward:
+As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~70,000+ news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and a topic modeling. Moving forward:
 * News aggregators and social media website should consider varying their recommendations algorithms to reduce echo chambers
-* Any anti-news recommendation systems should also include an algorithm around fact-based news
-* Future opportunities may include adding collaborative filtering, updating the topic modeling, and creating a pipeline to include more update news articles in the dataset
+* 
 
 The following resources can be found in this repository:
-* [NLP Pipeline Class](https://github.com/angarney/Unsupervised_Project/tree/main/Project%20Development/nlp_pipeline)
-* [Topic Modeling Workflow](https://github.com/angarney/Unsupervised_Project/blob/main/Project%20Development/topic_modeling_workflow.ipynb)
-* [Recommender System Workflow](https://github.com/angarney/Unsupervised_Project/blob/main/Project%20Development/recommender_workflow.ipynb)
-* [Streamlit App](https://github.com/angarney/Unsupervised_Project/blob/main/streamlit_app.py)
-
-**Check-out the interactive app [here](https://share.streamlit.io/angarney/unsupervised_project/main)!**
+* [Data Acquisition](ADD LINK)
+* [Topic Modeling Workflow](ADD LINK)
+* [Recommender System Workflow](ADD LINK)
+* [Streamlit App](ADD LINK)
 
 ## Design
 News article titles were explored to create a recommendation system that would return articles from different perspectives. 
@@ -24,16 +21,16 @@ News article titles were explored to create a recommendation system that would r
 
 ## Data
 
-~204,000 news articles from 2008-2018 were obtained. 
+~70,000+ news articles from 2021 were obtained through the NewsCatcher API.  
 
-**Features:** article title, author, date published, content, year of publishing, month of publishing, publication source, digital (yes/no), section, url
+**Features:** title, author, date published, summary, opinion (True/False), link, topic
 
-[Data Link](https://components.one/datasets/all-the-news-articles-dataset)
+[Data Link](https://newscatcherapi.com/)
 
 ## Algorithms
-**Text Preprocessing:** Lemmatization, tokenization, stopword removal were all used to clean the text data. 
+**Text Preprocessing:** Basic cleaning and tokenization were used 
 
-**Unsupervised Model Building/Dimensionality Reduction:** Several models were tried and the final model selected was a Non-Negative Matrix Factorization for topic modeling
+**Neural Network:** Transfer learning was leveraged through Google's pre-trained Word2Vec model
 
 **Sentiment Analysis:** All article were scores for sentiment
 
@@ -41,13 +38,11 @@ News article titles were explored to create a recommendation system that would r
 
 ## Tools
 * [Pandas](https://pandas.pydata.org/)/[NumPy](https://numpy.org/): Data cleaning/merging and exploratory data analysis
-* [Scikit-Learn](https://scikit-learn.org/stable/): Topic Modeling
-* [Natural Language Toolkit](https://www.nltk.org/): Topic Modeling
-* [DB Browser](https://sqlitebrowser.org/): Database
-* [SQAlchemy](https://www.sqlalchemy.org/): Database querying
+* [MongoDB](https://www.mongodb.com/): Database
+* [PyMongo](https://pymongo.readthedocs.io/en/stable/): Database querying
 * [Streamlit and Streamlit Sharing](https://streamlit.io/): App creating and hosting
 * [vaderSentiment](https://pypi.org/project/vaderSentiment/): Sentiment analysis
-* Python Class Creation: NLP Pipeline class created
+* [Gensim](https://radimrehurek.com/gensim/): Model creation
 
 ## Communication
-A [presentation](https://github.com/angarney/Unsupervised_Project/blob/main/Presentation/news_062521.pdf) and [app](https://share.streamlit.io/angarney/unsupervised_project/main) were created. 
+A [presentation](ADD LINK) and app were created. 

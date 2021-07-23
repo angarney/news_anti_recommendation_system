@@ -132,14 +132,37 @@ def article_opposite(input_query, model, doc_vectors):
 #Run function
 if input_query:
     recommended_articles = article_opposite(str(input_query),word2vec_model,doc_vectors)
-    article_1 = sent_score_df.iloc[recommended_articles[0]]['article']
-    article_2 = sent_score_df.iloc[recommended_articles[1]]['article']
-    
+    article_1 = news_df.iloc[recommended_articles[0]]['title']
+    article_2 = news_df.iloc[recommended_articles[1]]['title']
+    link_1 = news_df.iloc[recommended_articles[0]]['link']
+    link_2 = news_df.iloc[recommended_articles[1]]['link']
+    author_1 = news_df.iloc[recommended_articles[0]]['author']
+    author_2 = news_df.iloc[recommended_articles[1]]['author']
+    opinion_1 = news_df.iloc[recommended_articles[0]]['is_opinion']
+    opinion_2 = news_df.iloc[recommended_articles[1]]['is_opinion']
+    summary_1 = news_df.iloc[recommended_articles[0]]['summary']
+    summary_2 = news_df.iloc[recommended_articles[1]]['summary']
+
     st.write("""
-    ## Check-out there articles!
+    ## **Check-out there articles!**
     """)
-    st.write('Article 1: {art1}'.format(art1 = article_1))
-    st.write('Article 2: {art2}'.format(art2 = article_2))
+
+    st.write("""
+    ## Article 1
+    """)
+    st.write('{art1} by {aut1}'.format(art1 = '['+str(article_1)+']('+str(link_1)+')', aut1=author_1))
+    if opinion_1 is True:
+        st.write('Please note, this recommended article is an opinion piece.')
+    st.write('Article Summary: {sum1}'.format(sum1=summary_1))
+
+    st.write("""
+    ## Article 2
+    """)
+    st.write('{art2} by {aut2}'.format(art2 = '['+str(article_2)+']('+str(link_2)+')', aut2=author_2))
+    if opinion_2 is True:
+        st.write('Please note, this recommended article is an opinion piece.')
+    st.write('Article Summary: {sum2}'.format(sum2=summary_2))
+
     
 
 
