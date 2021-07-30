@@ -1,6 +1,6 @@
 # Reducing Echo Chambers Through an Anti-Recommendation System
 
-As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~70,000+ news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and Google's news pre-trained Word2Vec model. Moving forward:
+As information consumption moves primarily online, information echo chambers become inceasingly common. Data from ~160,000+ news articles were explored to create a anti-recommendation system. The purpose of the anti-recommendation system is to recommend article from a different perspective to users. The anti-recommendation system is built in sentiment system and Google's news pre-trained Word2Vec model. Moving forward:
 * News aggregators and social media website should consider varying their recommendations algorithms to reduce echo chambers
 * Utilizing current news sources increases the interpretability of recommendations
 * Additional context around the recommendation helps make the articles more user friendly
