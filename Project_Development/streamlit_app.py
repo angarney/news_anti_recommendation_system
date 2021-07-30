@@ -39,15 +39,10 @@ with st.form(key='my_form'):
 
 path = os.path.dirname(__file__)
 
-sent_score_file = path+'/sent_score_df'
-news_df_file = path+'/news_df'
-word2vec_model_file = path+'/word2vec_model'
-doc_vectors_file = path+'/doc_vectors'
-
-sent_score_df = pickle.load(open(sent_score_file,'rb'))
-news_df = pickle.load(open(news_df_file,'rb'))
-word2vec_model = pickle.load(open(word2vec_model_file,'rb'))
-doc_vectors = pickle.load(open(doc_vectors_file,'rb'))
+sent_score_df = pickle.load(open(path + '/Pipeline/Pickles/sent_score_df','rb'))
+news_df = pickle.load(open(path + '/Pipeline/Pickles/news_df','rb'))
+word2vec_model = pickle.load(open(path + '/Pipeline/Pickles/word2vec_model','rb'))
+doc_vectors = pickle.load(open(path + '/Pipeline/Pickles/doc_vectors','rb'))
 
 #Sentiment function
 def compound_sorter(score):
@@ -69,15 +64,13 @@ def clean_and_tokenize(document):
     return cleaned_words
 
 #Function to create document vectors
-not_in_model = []
-
 def vectorize_document(cleaned_title_words, model):
     list_of_word_vectors = []
     for token in cleaned_title_words:
         if token in model.wv.vocab:
             list_of_word_vectors.append(model[token])
         else:
-            not_in_model.append(token)
+            continue
     doc_vector = np.mean(list_of_word_vectors, axis=0)
     return doc_vector
 
