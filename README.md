@@ -4,12 +4,11 @@ As information consumption moves primarily online, information echo chambers bec
 * News aggregators and social media website should consider varying their recommendations algorithms to reduce echo chambers
 * Utilizing current news sources increases the interpretability of recommendations
 * Additional context around the recommendation helps make the articles more user friendly
-* Future opportunities may include automating the data pipeline and uploading the app to StreamLit Sharing
+* Future opportunities may include increasing the model processing speed and add CRON jobs to automate the fully connected pipeline
 
 The following resources can be found in this repository:
-* [Data Acquisition](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/test_pipeline.ipynb)
-* [Topic Modeling Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/topic_modeling_workflow.ipynbK)
-* [Recommender System Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/recommender_workflow_word2vec.ipynb)
+* [Engineering Pipeline](https://github.com/angarney/Data_Engineering_Project/tree/main/Project_Development/Pipeline)
+* [Topic Modeling Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/Modeling/topic_modeling_workflow.ipynb)
 * [Streamlit App](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/streamlit_app.py)
 
 ## Design
@@ -23,7 +22,7 @@ News article titles were explored to create a recommendation system that would r
 
 ## Data
 
-~70,000+ news articles from 2021 were obtained through the NewsCatcher API.  
+~160,000+ news articles from 2021 were obtained through the NewsCatcher API.  
 
 **Features:** title, author, date published, summary, opinion (True/False), link, topic
 
