@@ -47,4 +47,4 @@ News article titles were explored to create a recommendation system that would r
 * [Gensim](https://radimrehurek.com/gensim/): Model creation
 
 ## Communication
-A [presentation](https://github.com/angarney/Data_Engineering_Project/blob/main/Presentation/news_072321.pdf) and app were created. 
+A [presentation](https://github.com/angarney/Data_Engineering_Project/blob/main/Presentation/news_072721.pdf) and app were created. 
