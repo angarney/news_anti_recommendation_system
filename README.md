@@ -11,6 +11,8 @@ The following resources can be found in this repository:
 * [Topic Modeling Workflow](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/Modeling/topic_modeling_workflow.ipynb)
 * [Streamlit App](https://github.com/angarney/Data_Engineering_Project/blob/main/Project_Development/streamlit_app.py)
 
+**Check-out the presentation for this project [here](https://www.youtube.com/watch?v=H1N8YuW9ruA&feature=youtu.be)!**
+
 ## Design
 News article titles were explored to create a recommendation system that would return articles from different perspectives. 
 * **Opportunity:** Often folks tend to consume and interact primarily similar information. This can lead to heavily one-sided understandings social issues. 
